@@ -16,11 +16,6 @@ else
   readonly RUNNER_URL="${_GH_API_ENDPOINT}/${GH_ORG}/${GH_REPO}"
 fi
 
-if [[ ! -f /usr/local/bin/install-runner ]];
-then
-  sudo install-runner
-fi
-
 # Reconfigure from the clean state in case of runner failures/restarts
 ./config.sh remove --token "${RUNNER_TOKEN}"
 ./config.sh --unattended --url "${RUNNER_URL}" --token "${RUNNER_TOKEN}"
